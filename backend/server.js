@@ -7,7 +7,15 @@ const analyzeRoute = require('./routes/analyzeRoute');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// CORS configuration for production
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://jdresumeanalyzer.netlify.app', 'http://localhost:5173', 'http://localhost:5174']
+    : true,
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use('/api/analyze', analyzeRoute);
