@@ -11,6 +11,7 @@ const app = express();
 // ✅ Define allowed origins
 const allowedOrigins = [
   'https://jdresumeanalyzer.netlify.app',
+  'https://jdconnect.netlify.app',
   'http://localhost:5173',
   'http://localhost:5174'
 ];
